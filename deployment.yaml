@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: web-dev-tools
+  name: web-dev-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-dev-tools
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web-dev-tools
+    spec:
+      containers:
+      - image: seijikohara/web-dev-tools
+        name: web-dev-tools
+        resources: {}
+status: {}
