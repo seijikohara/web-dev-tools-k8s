@@ -21,4 +21,16 @@ spec:
       - image: seijikohara/web-dev-tools
         name: web-dev-tools
         resources: {}
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20000
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20000
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 10"]
 status: {}
